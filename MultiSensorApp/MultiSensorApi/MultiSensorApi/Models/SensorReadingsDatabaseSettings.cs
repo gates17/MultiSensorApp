@@ -1,6 +1,6 @@
 ﻿namespace MultiSensorApi.Models
 {
-    public class SensorReadingsDatabaseSettings
+    public class SensorReadingsDatabaseSettings :ISensorReadingsDatabaseSettings
     {
         public string ConnectionString { get; set; } = null!;
 
