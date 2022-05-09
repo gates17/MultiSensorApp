@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JNUh/CwrFvBiJhPlKwewXBg1pzSoKmHYdSGxl7xZH7dz+oai0OI0iVm1Ud0bI9rpn2wGKrMmnFDCvEwZ7iCafA==",
+  "dgSpecHash": "xm0eaWFQHwxsDuNZIzUAu2aA2U8wXUNFsEEFy3wJ8e5iR+1tOs7aHOEkeq9PqFQJpQRzTBj8CCmmVYfkMAOBWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\luisf\\source\\repos\\MultiSensorAppApi\\MultiSensorAppApi\\MultiSensorAppApi.csproj",
+  "projectFilePath": "C:\\Users\\luisf\\source\\repos\\MultiSensorApp\\MultiSensorApp\\MultiSensorAppApi\\MultiSensorAppApi\\MultiSensorAppApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luisf\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\luisf\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
