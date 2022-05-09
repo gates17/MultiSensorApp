@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSensorApi", "MultiSensorApi\MultiSensorApi.csproj", "{05509EF4-C98A-4343-BCFC-98D05B423EDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSensorApi", "MultiSensorApi\MultiSensorApi.csproj", "{05509EF4-C98A-4343-BCFC-98D05B423EDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSensorAppApi", "..\MultiSensorAppApi\MultiSensorAppApi\MultiSensorAppApi.csproj", "{8423E72C-ECB2-4EEF-A172-271107BA9066}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSensorAppFrontEnd", "..\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd.csproj", "{62546930-0F97-4078-8832-F31418C5CCCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{05509EF4-C98A-4343-BCFC-98D05B423EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05509EF4-C98A-4343-BCFC-98D05B423EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05509EF4-C98A-4343-BCFC-98D05B423EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8423E72C-ECB2-4EEF-A172-271107BA9066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8423E72C-ECB2-4EEF-A172-271107BA9066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8423E72C-ECB2-4EEF-A172-271107BA9066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8423E72C-ECB2-4EEF-A172-271107BA9066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62546930-0F97-4078-8832-F31418C5CCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62546930-0F97-4078-8832-F31418C5CCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62546930-0F97-4078-8832-F31418C5CCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62546930-0F97-4078-8832-F31418C5CCCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

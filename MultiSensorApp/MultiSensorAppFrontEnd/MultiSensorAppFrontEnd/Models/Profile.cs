@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MultiSensorAppApi.Models
+namespace MultiSensorAppFrontEnd.Models
 {
     public class Profile
     {
@@ -43,6 +43,6 @@ namespace MultiSensorAppApi.Models
         public int PermissionId { get; set; }
 
         public Permission? Permission { get; set; }
-        
+
     }
 }
