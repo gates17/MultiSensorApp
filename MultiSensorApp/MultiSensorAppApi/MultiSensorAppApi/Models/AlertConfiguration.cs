@@ -26,11 +26,10 @@ namespace MultiSensorAppApi.Models
         public DateTime CreationDate { get; set; }
 
 
-        [Required]
         public DateTime UpdateDate { get; set; }
 
 
-        public bool IsInactive { get; set; }
+        public bool IsInactive { get; set; } = false;
 
 
         [Required, ForeignKey("Sensor")]

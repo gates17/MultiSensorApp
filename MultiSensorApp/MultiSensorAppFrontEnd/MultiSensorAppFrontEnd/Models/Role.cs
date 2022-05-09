@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MultiSensorAppApi.Models
+namespace MultiSensorAppFrontEnd.Models
 {
     public class Role
     {

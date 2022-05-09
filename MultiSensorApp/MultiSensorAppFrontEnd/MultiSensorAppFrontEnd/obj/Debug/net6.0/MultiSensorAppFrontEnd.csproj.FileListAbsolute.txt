@@ -1,8 +1,26 @@
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.csproj.AssemblyReference.cache
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.AssemblyInfoInputs.cache
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.AssemblyInfo.cs
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.csproj.CoreCompileInputs.cache
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.RazorAssemblyInfo.cache
-C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.RazorAssemblyInfo.cs
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.csproj.AssemblyReference.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.AssemblyInfoInputs.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.AssemblyInfo.cs
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.csproj.CoreCompileInputs.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.RazorAssemblyInfo.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.RazorAssemblyInfo.cs
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\appsettings.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\MultiSensorAppFrontEnd.staticwebassets.runtime.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\MultiSensorAppFrontEnd.exe
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\MultiSensorAppFrontEnd.deps.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\MultiSensorAppFrontEnd.runtimeconfig.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\MultiSensorAppFrontEnd.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\bin\Debug\net6.0\MultiSensorAppFrontEnd.pdb
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\scopedcss\bundle\MultiSensorAppFrontEnd.styles.css
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\scopedcss\projectbundle\MultiSensorAppFrontEnd.bundle.scp.css
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\refint\MultiSensorAppFrontEnd.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.pdb
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.genruntimeconfig.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\ref\MultiSensorAppFrontEnd.dll
