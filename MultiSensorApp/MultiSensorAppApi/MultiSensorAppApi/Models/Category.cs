@@ -18,10 +18,9 @@ namespace MultiSensorAppApi.Models
         public DateTime CreationDate { get; set; }
 
 
-        [Required]
         public DateTime UpdateTime { get; set; }
 
 
-        public bool IsInactive { get; set; }
+        public bool IsInactive { get; set; } = false;
     }
 }
