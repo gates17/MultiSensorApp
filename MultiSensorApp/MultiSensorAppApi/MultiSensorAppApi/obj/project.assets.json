@@ -10072,19 +10072,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luisf\\.nuget\\packages\\": {}
+    "C:\\Users\\Asus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luisf\\source\\repos\\MultiSensorApp\\MultiSensorApp\\MultiSensorAppApi\\MultiSensorAppApi\\MultiSensorAppApi.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\Desktop\\ipca docs\\MultiSensorApp\\MultiSensorAppApi\\MultiSensorAppApi\\MultiSensorAppApi.csproj",
       "projectName": "MultiSensorAppApi",
-      "projectPath": "C:\\Users\\luisf\\source\\repos\\MultiSensorApp\\MultiSensorApp\\MultiSensorAppApi\\MultiSensorAppApi\\MultiSensorAppApi.csproj",
-      "packagesPath": "C:\\Users\\luisf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luisf\\source\\repos\\MultiSensorApp\\MultiSensorApp\\MultiSensorAppApi\\MultiSensorAppApi\\obj\\",
+      "projectPath": "C:\\Users\\Asus\\Desktop\\ipca docs\\MultiSensorApp\\MultiSensorAppApi\\MultiSensorAppApi\\MultiSensorAppApi.csproj",
+      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Asus\\Desktop\\ipca docs\\MultiSensorApp\\MultiSensorAppApi\\MultiSensorAppApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\luisf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

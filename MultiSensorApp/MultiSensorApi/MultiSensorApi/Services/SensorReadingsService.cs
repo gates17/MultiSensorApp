@@ -42,6 +42,13 @@ namespace MultiSensorApi.Services
             await _sensorsCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
 
         /// <summary>
+        /// Get specific Sensor from Mongo Collection
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<Sensor?> GetAsync(string id, DateTime date) =>
+            await _sensorsCollection.Find(x => x.Id == id && x.ReadingDate.Equals(date)).FirstOrDefaultAsync();
+        /// <summary>
         /// Use this to Create a new document on Mongo Collection
         /// </summary>
         /// <param name="newBook"></param>
