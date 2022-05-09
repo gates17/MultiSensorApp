@@ -1,0 +1,8 @@
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.AssemblyInfo.cs
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.RazorAssemblyInfo.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorAppFrontEnd\MultiSensorAppFrontEnd\obj\Debug\net6.0\MultiSensorAppFrontEnd.RazorAssemblyInfo.cs
