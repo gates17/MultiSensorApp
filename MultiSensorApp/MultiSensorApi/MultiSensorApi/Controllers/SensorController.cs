@@ -30,6 +30,20 @@ namespace MultiSensorApi.Controllers
             return sensor;
         }
 
+        [HttpGet("{id:length(24)}")]
+        public async Task<ActionResult<Sensor>> Get(string id, DateTime date)
+        {
+
+            date = DateTime.Now;
+            var sensor = await _sensorReadingsService.GetAsync(id, date);
+
+            if (sensor is null)
+            {
+                return NotFound();
+            }
+
+            return sensor;
+        }
         [HttpPost]
         public async Task<IActionResult> Post(Sensor newSensor)
         {
