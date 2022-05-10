@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Asus\\.nuget\\packages\\": {}
+    "C:\\Users\\luisf\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\Desktop\\ipca docs\\MultiSensorApp\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd.csproj",
+      "projectUniqueName": "C:\\Users\\luisf\\source\\repos\\MultiSensorApp\\MultiSensorApp\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd.csproj",
       "projectName": "MultiSensorAppFrontEnd",
-      "projectPath": "C:\\Users\\Asus\\Desktop\\ipca docs\\MultiSensorApp\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd.csproj",
-      "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\Desktop\\ipca docs\\MultiSensorApp\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd\\obj\\",
+      "projectPath": "C:\\Users\\luisf\\source\\repos\\MultiSensorApp\\MultiSensorApp\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd.csproj",
+      "packagesPath": "C:\\Users\\luisf\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\luisf\\source\\repos\\MultiSensorApp\\MultiSensorApp\\MultiSensorAppFrontEnd\\MultiSensorAppFrontEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\luisf\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
