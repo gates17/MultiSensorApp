@@ -1,0 +1,6 @@
+//ignore .vs
+*/.vs
+
+//ignore /obj folder
+
+*/obj
