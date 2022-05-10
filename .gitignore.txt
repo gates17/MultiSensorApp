@@ -4,3 +4,6 @@
 //ignore /obj folder
 
 */obj
+
+//ignore /bin folder
+*/bin
