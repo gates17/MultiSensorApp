@@ -1,0 +1,86 @@
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\appsettings.json
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.exe
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.deps.json
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.runtimeconfig.json
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.pdb
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\linux\native\libsnappy64.so
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\linux\native\libzstd.so
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\osx\native\libsnappy64.dylib
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\osx\native\libzstd.dylib
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\libzstd.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\snappy32.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\snappy64.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.AssemblyInfo.cs
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\scopedcss\bundle\MultiSensorApi.styles.css
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.csproj.CopyComplete
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\refint\MultiSensorApi.dll
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.pdb
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.genruntimeconfig.cache
+C:\Users\Asus\Desktop\ipca docs\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\ref\MultiSensorApi.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\appsettings.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.exe
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.deps.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.runtimeconfig.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MultiSensorApi.pdb
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\DnsClient.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\linux\native\libsnappy64.so
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\linux\native\libzstd.so
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\osx\native\libsnappy64.dylib
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\osx\native\libzstd.dylib
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\libzstd.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\snappy32.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\snappy64.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.csproj.AssemblyReference.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.AssemblyInfoInputs.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.AssemblyInfo.cs
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.csproj.CoreCompileInputs.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\scopedcss\bundle\MultiSensorApi.styles.css
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.csproj.CopyComplete
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\refint\MultiSensorApi.dll
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.pdb
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\MultiSensorApi.genruntimeconfig.cache
+C:\Users\luisf\source\repos\MultiSensorApp\MultiSensorApp\MultiSensorApi\MultiSensorApi\obj\Debug\net6.0\ref\MultiSensorApi.dll
