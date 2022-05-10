@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MultiSensorAppApi.Models
 {
@@ -11,9 +12,10 @@ namespace MultiSensorAppApi.Models
         public DateTime CreationDate { get; set; }
 
 
-        public DateTime UpdateDate { get; set; }
+        public DateTime UpdateDate { get; set; } = DateTime.Now;
 
 
-        public bool IsInactive { get; set; } = false;
+        [DefaultValue(false)]
+        public bool IsInactive { get; set; }
     }
 }

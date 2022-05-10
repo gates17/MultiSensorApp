@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MultiSensorAppApi.Models
 {
+    [Index(nameof(Type), IsUnique = true)]
     public class Category
     {
         [Key, Required]
@@ -18,9 +21,10 @@ namespace MultiSensorAppApi.Models
         public DateTime CreationDate { get; set; }
 
 
-        public DateTime UpdateTime { get; set; }
+        public DateTime UpdateTime { get; set; } = DateTime.Now;
 
 
-        public bool IsInactive { get; set; } = false;
+        [DefaultValue("false")]
+        public bool IsInactive { get; set; }
     }
 }

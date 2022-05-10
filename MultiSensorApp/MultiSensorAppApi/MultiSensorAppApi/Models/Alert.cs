@@ -1,21 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MultiSensorAppApi.Models
 {
+    [Microsoft.EntityFrameworkCore.Index(nameof(Value), IsUnique = true)]
     public class Alert
     {
         [Key, Required]
         public int Id { get; set; }
 
-
+        [Required]
         public int Value { get; set; }
 
 
         [StringLength(45)]
         [RegularExpression(@"[A-Za-z\ ]{2,45}$",
             ErrorMessage = "The inserted description does not respect the rules!")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
 
         [Required]
@@ -23,9 +25,10 @@ namespace MultiSensorAppApi.Models
         public DateTime CreationDate { get; set; }
 
 
-        public DateTime UpdateDate { get; set; }
+        public DateTime UpdateDate { get; set; } = DateTime.Now;
 
 
+        [DefaultValue("false")]
         public bool IsInactive { get; set; } = false;
 
 

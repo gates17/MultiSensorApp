@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MultiSensorAppApi.Data;
 
@@ -11,9 +12,10 @@ using MultiSensorAppApi.Data;
 namespace MultiSensorAppApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220510134405_ModelUpdate")]
+    partial class ModelUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,6 +39,7 @@ namespace MultiSensorAppApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
@@ -60,9 +63,6 @@ namespace MultiSensorAppApi.Migrations
                     b.HasIndex("SensorId");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("Value")
-                        .IsUnique();
 
                     b.ToTable("Alerts");
                 });
@@ -107,8 +107,6 @@ namespace MultiSensorAppApi.Migrations
 
                     b.HasIndex("SensorId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("AlertConfigurations");
                 });
 
@@ -141,9 +139,6 @@ namespace MultiSensorAppApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Level")
-                        .IsUnique();
-
                     b.ToTable("AlertLevels");
                 });
 
@@ -170,9 +165,6 @@ namespace MultiSensorAppApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("Areas");
                 });
@@ -300,9 +292,6 @@ namespace MultiSensorAppApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Type")
-                        .IsUnique();
-
                     b.ToTable("Roles");
                 });
 
@@ -349,9 +338,6 @@ namespace MultiSensorAppApi.Migrations
                     b.HasIndex("AreaId");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("Sensors");
                 });
@@ -433,15 +419,7 @@ namespace MultiSensorAppApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MultiSensorAppApi.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Sensor");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MultiSensorAppApi.Models.Profile", b =>

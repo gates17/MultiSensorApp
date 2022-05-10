@@ -1,6 +1,7 @@
 ﻿#nullable disable
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -45,27 +46,30 @@ namespace MultiSensorAppApi.Controllers
 
         // GET: api/Sensor/5
         [HttpGet("GetSensorByCategory/{categoryId}")]
-        public async Task<ActionResult<Sensor>> GetSensorByCategory(int categoryId)
+        public async Task<ActionResult<IEnumerable<Sensor>>> GetSensorByCategory(int categoryId)
         {
             try
             {
-                var sensor = await _context.Sensors.FirstAsync(x => x.CategoryId.Equals(categoryId));
+                var sensor = await _context.Sensors.Where(x => x.CategoryId.Equals(categoryId)).ToListAsync();
+                // var sensor = await _context.sensors.where(x => x.categoryid.equals(categoryid)).include(x => x.category).tolistasync();
+
 
                 if (sensor == null)
                 {
                     return NotFound();
                 }
 
-                return sensor;
+                return Ok(sensor);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException(ex.Message);
             }
         }
 
-        [HttpGet("GetSensorByCategory/{categoryId}")]
+        // GET: api/Sensor/
+        [HttpGet("GetSensorByArea/{areaId}")]
         public async Task<ActionResult<Sensor>> GetSensorByArea(int areaId)
         {
             try

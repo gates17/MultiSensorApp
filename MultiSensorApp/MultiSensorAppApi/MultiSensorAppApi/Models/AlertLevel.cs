@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MultiSensorAppApi.Models
 {
+    [Index(nameof(Level), IsUnique = true)]
     public class AlertLevel
     {
         [Key, Required]
@@ -24,9 +27,10 @@ namespace MultiSensorAppApi.Models
         public DateTime CreationDate { get; set; }
 
 
-        public DateTime UpdateDate { get; set; }
+        public DateTime UpdateDate { get; set; } = DateTime.Now;
 
 
+        [DefaultValue(false)]
         public bool IsInactive { get; set; } = false;
     }
 }

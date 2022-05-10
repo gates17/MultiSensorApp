@@ -79,6 +79,10 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
+    
+            if(CategoryExists(category.Type))
+                return BadRequest();
+
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
@@ -105,5 +109,11 @@ namespace MultiSensorAppApi.Controllers
         {
             return _context.Categories.Any(e => e.Id == id);
         }
+
+        private bool CategoryExists(string type)
+        { 
+            return _context.Categories.Any(e => e.Type.Equals(type));
+        }
+
     }
 }
