@@ -1,9 +1,9 @@
 //ignore .vs
-*/.vs
+./MultiSensorApp/*/.vs
 
 //ignore /obj folder
 
-*/obj
+./MultiSensorApp/*/obj
 
 //ignore /bin folder
-*/bin
+./MultiSensorApp/*/bin
