@@ -30,8 +30,8 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/Sensor/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Sensor>> GetSensor(int id)
+        [HttpGet("GetSensorById/{id}")]
+        public async Task<ActionResult<Sensor>> GetSensorById(int id)
         {
             var sensor = await _context.Sensors.FindAsync(id);
 
@@ -41,6 +41,49 @@ namespace MultiSensorAppApi.Controllers
             }
 
             return sensor;
+        }
+
+        // GET: api/Sensor/5
+        [HttpGet("GetSensorByCategory/{categoryId}")]
+        public async Task<ActionResult<Sensor>> GetSensorByCategory(int categoryId)
+        {
+            try
+            {
+                var sensor = await _context.Sensors.FirstAsync(x => x.CategoryId.Equals(categoryId));
+
+                if (sensor == null)
+                {
+                    return NotFound();
+                }
+
+                return sensor;
+
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        [HttpGet("GetSensorByCategory/{categoryId}")]
+        public async Task<ActionResult<Sensor>> GetSensorByArea(int areaId)
+        {
+            try
+            {
+                var sensor = await _context.Sensors.FirstAsync(x => x.AreaId.Equals(areaId));
+
+                if (sensor == null)
+                {
+                    return NotFound();
+                }
+
+                return sensor;
+
+            }
+            catch (Exception)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         // PUT: api/Sensor/5
