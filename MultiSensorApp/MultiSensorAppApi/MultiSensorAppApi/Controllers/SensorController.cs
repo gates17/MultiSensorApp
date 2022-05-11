@@ -51,7 +51,7 @@ namespace MultiSensorAppApi.Controllers
             try
             {
                 var sensor = await _context.Sensors.Where(x => x.CategoryId.Equals(categoryId)).ToListAsync();
-                // var sensor = await _context.sensors.where(x => x.categoryid.equals(categoryid)).include(x => x.category).tolistasync();
+                // var sensor = await _context.sensors.where(x => x.Categoryid.equals(categoryid)).include(x => x.category).tolistasync();
 
 
                 if (sensor == null)
@@ -81,12 +81,12 @@ namespace MultiSensorAppApi.Controllers
                     return NotFound();
                 }
 
-                return sensor;
+                return Ok(sensor);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException(ex.Message);
             }
         }
 
