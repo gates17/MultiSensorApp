@@ -43,6 +43,14 @@ namespace MultiSensorAppApi.Controllers
             return alertConfiguration;
         }
 
+
+        // GET: api/GetLastAccessedAlertConfiguration
+        [HttpGet("GetLastAccessedAlertConfiguration")]
+        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetLastAccessedAlertConfiguration()
+        {
+            return await _context.AlertConfigurations.OrderBy(x => x.LastAccess).ToListAsync();
+        }
+
         // PUT: api/AlertConfiguration/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
