@@ -30,8 +30,8 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/Area/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Area>> GetArea(int id)
+        [HttpGet("GetAreaById/{id}")]
+        public async Task<ActionResult<Area>> GetAreaById(int id)
         {
             var area = await _context.Areas.FindAsync(id);
 
@@ -40,8 +40,33 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return area;
+            return Ok(area);
         }
+
+
+        // GET: api/Area/string
+        [HttpGet("GetAreaByName/{name}")]
+        public async Task<ActionResult<Area>> GetAreaByName(string name)
+        {
+            // return uma lista where level equals AlertLevel.Level
+
+            try
+            {
+                var area = await _context.Areas.FirstOrDefaultAsync(x => x.Name.Equals(name));
+
+                if (area == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(area);
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
 
         // PUT: api/Area/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -95,7 +120,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Areas.Remove(area);
+            area.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

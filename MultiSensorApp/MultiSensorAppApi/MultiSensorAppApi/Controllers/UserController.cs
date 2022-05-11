@@ -30,8 +30,8 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/User/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        [HttpGet("GetUserById/{id}")]
+        public async Task<ActionResult<User>> GetUserById(int id)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -40,7 +40,21 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return user;
+            return Ok(user);
+        }
+
+        // GET: api/User/5
+        [HttpGet("GetUserByRole/{roleId}")]
+        public async Task<ActionResult<User>> GetUserByRole(int roleId)
+        {
+            var user = await _context.Users.Where(x => x.RoleId.Equals(roleId)).ToListAsync();
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
         }
 
         // PUT: api/User/5

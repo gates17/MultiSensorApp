@@ -30,8 +30,8 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/AlertConfiguration/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AlertConfiguration>> GetAlertConfiguration(int id)
+        [HttpGet("GetAlertConfigurationById/{id}")]
+        public async Task<ActionResult<AlertConfiguration>> GetAlertConfigurationById(int id)
         {
             var alertConfiguration = await _context.AlertConfigurations.FindAsync(id);
 
@@ -40,7 +40,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return alertConfiguration;
+            return Ok(alertConfiguration);
         }
 
 
@@ -53,45 +53,43 @@ namespace MultiSensorAppApi.Controllers
         }
 
 
-        [HttpGet("GetAlertConfigurationBySensorId")]
-        public async Task<ActionResult<AlertConfiguration>> GetAllAlertConfigurationBySensorId(int sensorId)
+        [HttpGet("GetAlertConfigurationBySensorId/{sensorId}")]
+        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetAllAlertConfigurationBySensorId(int sensorId)
         {
             try
             {
-                var alertConfiguration = await _context.AlertConfigurations.FirstAsync(x => x.SensorId.Equals(sensorId));
+                var alertConfiguration = await _context.AlertConfigurations.Where(x => x.SensorId.Equals(sensorId)).ToListAsync();
 
                 if (alertConfiguration == null)
                 {
                     return NotFound();
                 }
 
-                return alertConfiguration;
+                return Ok(alertConfiguration);
             }
             catch (Exception ex)
             {
-
                 throw new NotImplementedException(ex.Message);
             }
         }
 
 
-        [HttpGet("GetAlertConfigurationByUserId")]
-        public async Task<ActionResult<AlertConfiguration>> GetAllAlertConfigurationByUserId(int userId)
+        [HttpGet("GetAlertConfigurationByUserId/{userId}")]
+        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetAllAlertConfigurationByUserId(int userId)
         {
             try
             {
-                var alertConfiguration = await _context.AlertConfigurations.FirstAsync(x => x.UserId.Equals(userId));
+                var alertConfiguration = await _context.AlertConfigurations.Where(x => x.UserId.Equals(userId)).ToListAsync();
 
                 if (alertConfiguration == null)
                 {
                     return NotFound();
                 }
 
-                return alertConfiguration;
+                return Ok(alertConfiguration);
             }
             catch (Exception ex)
             {
-
                 throw new NotImplementedException(ex.Message);
             }
         }

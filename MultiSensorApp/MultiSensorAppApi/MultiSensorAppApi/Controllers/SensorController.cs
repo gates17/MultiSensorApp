@@ -68,6 +68,31 @@ namespace MultiSensorAppApi.Controllers
             }
         }
 
+
+        // GET: api/Sensor/5
+        [HttpGet("GetSensorByAlertLevel/{alertLevelId}")]
+        public async Task<ActionResult<IEnumerable<Sensor>>> GetSensorByAlertLevel(int alertLevelId)
+        {
+            try
+            {
+                var sensor = await _context.Sensors.Where(x => x.AlertLevelId.Equals(alertLevelId)).ToListAsync();
+                // var sensor = await _context.sensors.where(x => x.Categoryid.equals(categoryid)).include(x => x.category).tolistasync();
+
+                if (sensor == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(sensor);
+
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        // GET: api/Sensor/5
         [HttpGet("GetSensorByArea/{areaId}")]
         public async Task<ActionResult<Sensor>> GetSensorByArea(int areaId)
         {
@@ -89,6 +114,8 @@ namespace MultiSensorAppApi.Controllers
             }
         }
 
+
+        // GET: Api/sensor
         [HttpGet("GetInactiveSensors")]
         public async Task<ActionResult<IEnumerable<Sensor>>> GetInactiveSensors()
         {

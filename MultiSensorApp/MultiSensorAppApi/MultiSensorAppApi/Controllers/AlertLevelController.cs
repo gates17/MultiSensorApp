@@ -30,8 +30,8 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/AlertLevel/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AlertLevel>> GetAlertLevel(int id)
+        [HttpGet("GetAlertLevelById/{id}")]
+        public async Task<ActionResult<AlertLevel>> GetAlertLevelById(int id)
         {
             var alertLevel = await _context.AlertLevels.FindAsync(id);
 
@@ -40,17 +40,30 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return alertLevel;
+            return Ok(alertLevel);
         }
 
 
         // GET: api/AlertLevel/string
-        [HttpGet("{level}")]
-        public async Task<ActionResult<IEnumerable<AlertLevel>>> GetAlertLevelByLevel(string level)
+        [HttpGet("GetAlertLevelByLevel/{level}")]
+        public async Task<ActionResult<AlertLevel>> GetAlertLevelByLevel(string level)
         {
             // return uma lista where level equals AlertLevel.Level
+            try
+            {
+                var alertLevel = await _context.AlertLevels.FirstOrDefaultAsync(x => x.Level.Equals(level));
 
-            return await _context.AlertLevels.Where(x => x.Level.Equals(level)).ToListAsync();
+                if (alertLevel == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(alertLevel);
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
         }
 
 

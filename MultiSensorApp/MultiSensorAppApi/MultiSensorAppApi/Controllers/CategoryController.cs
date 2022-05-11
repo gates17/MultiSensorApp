@@ -40,7 +40,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return category;
+            return Ok(category);
         }
 
         // PUT: api/Category/5
@@ -99,7 +99,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Categories.Remove(category);
+            category.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

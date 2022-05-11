@@ -40,7 +40,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return role;
+            return Ok(role);
         }
 
         // PUT: api/Role/5
@@ -95,7 +95,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Roles.Remove(role);
+            role.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

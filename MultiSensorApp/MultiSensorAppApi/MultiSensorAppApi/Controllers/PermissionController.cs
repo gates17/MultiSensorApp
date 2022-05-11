@@ -40,7 +40,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return permission;
+            return Ok(permission);
         }
 
         // PUT: api/Permission/5
@@ -95,7 +95,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Permissions.Remove(permission);
+            permission.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

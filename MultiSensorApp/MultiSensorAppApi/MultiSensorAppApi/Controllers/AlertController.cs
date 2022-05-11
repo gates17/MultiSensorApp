@@ -30,8 +30,8 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/Alert/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Alert>> GetAlert(int id)
+        [HttpGet("GetAlertById/{id}")]
+        public async Task<ActionResult<Alert>> GetAlertById(int id)
         {
             var alert = await _context.Alerts.FindAsync(id);
 
@@ -40,45 +40,44 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return alert;
+            return Ok(alert);
         }
 
 
         [HttpGet("GetAlertBySensorId/{sensorId}")]
-        public async Task<ActionResult<Alert>> GetAlertBySensorId(int sensorId)
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertBySensorId(int sensorId)
         {
             try
             {
-                var alert = await _context.Alerts.FirstAsync(x => x.SensorId.Equals(sensorId));
+                var alert = await _context.Alerts.Where(x => x.SensorId.Equals(sensorId)).ToListAsync();
 
                 if (alert == null)
                 {
                     return NotFound();
                 }
 
-                return alert;
+                return Ok(alert);
             }
             catch (Exception ex)
             {
-
                 throw new NotImplementedException(ex.Message);
             }
         }
 
 
         [HttpGet("GetAlertByUserId/{userId}")]
-        public async Task<ActionResult<Alert>> GetAlertByUserId(int userId)
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertByUserId(int userId)
         {
             try
             {
-                var alert = await _context.Alerts.FirstAsync(x => x.UserId.Equals(userId));
+                var alert = await _context.Alerts.Where(x => x.UserId.Equals(userId)).ToListAsync();
 
                 if (alert == null)
                 {
                     return NotFound();
                 }
 
-                return alert;
+                return Ok(alert);
             }
             catch (Exception ex)
             {
