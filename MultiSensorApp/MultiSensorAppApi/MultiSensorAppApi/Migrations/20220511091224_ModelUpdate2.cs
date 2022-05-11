@@ -4,7 +4,7 @@
 
 namespace MultiSensorAppApi.Migrations
 {
-    public partial class ModelUpdate : Migration
+    public partial class ModelUpdate2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -43,8 +43,6 @@ namespace MultiSensorAppApi.Controllers
             return alertConfiguration;
         }
 
-<<<<<<< Updated upstream
-=======
 
         // GET: api/GetLastAccessedAlertConfiguration
         [HttpGet("GetLastAccessedAlertConfiguration")]
@@ -98,7 +96,7 @@ namespace MultiSensorAppApi.Controllers
             }
         }
 
->>>>>>> Stashed changes
+
         // PUT: api/AlertConfiguration/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

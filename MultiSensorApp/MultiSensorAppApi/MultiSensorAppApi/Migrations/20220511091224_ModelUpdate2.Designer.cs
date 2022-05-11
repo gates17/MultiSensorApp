@@ -12,8 +12,8 @@ using MultiSensorAppApi.Data;
 namespace MultiSensorAppApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220511091224_ModelUpdate")]
-    partial class ModelUpdate
+    [Migration("20220511091224_ModelUpdate2")]
+    partial class ModelUpdate2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
