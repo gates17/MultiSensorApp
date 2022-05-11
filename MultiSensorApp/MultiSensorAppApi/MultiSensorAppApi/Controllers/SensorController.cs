@@ -68,7 +68,6 @@ namespace MultiSensorAppApi.Controllers
             }
         }
 
-        // GET: api/Sensor/
         [HttpGet("GetSensorByArea/{areaId}")]
         public async Task<ActionResult<Sensor>> GetSensorByArea(int areaId)
         {
@@ -82,6 +81,20 @@ namespace MultiSensorAppApi.Controllers
                 }
 
                 return Ok(sensor);
+
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        [HttpGet("GetInactiveSensors")]
+        public async Task<ActionResult<IEnumerable<Sensor>>> GetInactiveSensors()
+        {
+            try
+            {
+                return await _context.Sensors.Where(x => x.IsInactive.Equals(true)).ToListAsync();
 
             }
             catch (Exception ex)
@@ -114,7 +127,7 @@ namespace MultiSensorAppApi.Controllers
                 }
                 else
                 {
-                    throw;
+                    throw new NotImplementedException();
                 }
             }
 
@@ -142,7 +155,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Sensors.Remove(sensor);
+            sensor.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

@@ -14,7 +14,7 @@ namespace MultiSensorAppApi.Models
 
 
         [Required]
-        public DateTime LastAcsess { get; set; }
+        public DateTime LastAccess { get; set; }
 
 
         public int Max { get; set; }
