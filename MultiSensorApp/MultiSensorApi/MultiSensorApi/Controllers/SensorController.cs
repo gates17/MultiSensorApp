@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiSensorApi.Models;
 using MultiSensorApi.Services;
+using System.Net;
 
 namespace MultiSensorApi.Controllers
 {
@@ -13,10 +14,21 @@ namespace MultiSensorApi.Controllers
         public SensorController(SensorReadingsService sensorReadingsService) =>
             _sensorReadingsService = sensorReadingsService;
 
+
+        /// <summary>
+        /// Returns a List of all Sensor readingss
+        /// </summary>
+        /// <returns>List<Sensor></returns>
         [HttpGet]
         public async Task<List<Sensor>> Get() =>
             await _sensorReadingsService.GetAsync();
 
+
+        /// <summary>
+        /// Returns a Sensor reading with the specified ObjectId. ObjectId must have 24 characters 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Sensor</returns>
         [HttpGet("{id:length(24)}")]
         public async Task<ActionResult<Sensor>> Get(string id)
         {
@@ -30,13 +42,21 @@ namespace MultiSensorApi.Controllers
             return sensor;
         }
 
-        [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<Sensor>> Get(string id, DateTime date)
+
+        /// <summary>
+        /// Returns all Sensor readings given a specifc Date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns>List<Sensor></returns>
+        [HttpGet("GetByDate/{date}")]
+        public async Task<ActionResult<List<Sensor>>> GetByDate(string date)
         {
-
-            date = DateTime.Now;
-            var sensor = await _sensorReadingsService.GetAsync(id, date);
-
+            var decodedDate = WebUtility.UrlDecode(date);
+            DateTime dateOnly = Convert.ToDateTime(decodedDate);
+            var sensor = await _sensorReadingsService.GetByDateAsync(dateOnly);
+            //cast to DateOnly
+            //var sensor = await _sensorReadingsService.GetByDateAsync(DateOnly.FromDateTime(dateOnly));
+        
             if (sensor is null)
             {
                 return NotFound();
@@ -44,6 +64,104 @@ namespace MultiSensorApi.Controllers
 
             return sensor;
         }
+
+        /// <summary>
+        /// Returns all Sensor readings in a given interval between a starting date and an ending date.
+        /// If ending date is not given it assumes a 24H interval
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        [HttpGet("GetBetweenDates")]
+        public async Task<ActionResult<List<Sensor>>> GetBetweenDates(string? startDate, string? startDateTime, string? endDate, string? endDateTime)
+        {
+            string decodedStartDate;
+            string decodedStartDateTime;
+            string decodedEndtDate;
+            string decodedEndtDateTime;
+
+            if (startDate !=  null && startDateTime == null)
+            {
+                decodedStartDate = WebUtility.UrlDecode(startDate);
+            }
+            else if((startDate != null) && startDateTime != null )
+            {
+                decodedStartDate = WebUtility.UrlDecode(startDate);
+                decodedStartDateTime = WebUtility.UrlDecode(startDateTime);
+                decodedStartDate = Convert.ToDateTime(decodedStartDate).Add(TimeSpan.Parse(decodedStartDateTime)).ToString();
+            }
+            else { return NotFound(); }
+
+            if (endDate != null && endDateTime == null)
+            { 
+                decodedEndtDate = WebUtility.UrlDecode(endDate);
+            }
+            else if(endDate != null && endDateTime != null)
+            {
+                decodedEndtDate = WebUtility.UrlDecode(endDate);
+                decodedEndtDateTime = WebUtility.UrlDecode(endDateTime);
+                decodedEndtDate = Convert.ToDateTime(decodedEndtDate).Add(TimeSpan.Parse(decodedEndtDateTime)).ToString();
+            }
+
+            else
+            {
+                decodedEndtDate = WebUtility.UrlDecode(startDate);
+                decodedEndtDate = Convert.ToDateTime(decodedEndtDate).AddDays(1).ToString();
+            }
+            DateTime startDateOnly = Convert.ToDateTime(decodedStartDate);
+            DateTime endDateOnly = Convert.ToDateTime(decodedEndtDate);
+
+            var result = await _sensorReadingsService.GetWithDatesBetweenAsync(startDateOnly, endDateOnly);
+            if (result.Equals(null))
+            {
+                return NotFound();
+            }
+            return result;
+        }
+
+
+
+        [HttpGet("GetBetweenValues")]
+        public async Task<ActionResult<List<Sensor>>> GetBetweenValues(double? minValue, double maxValue)
+        {
+            if (minValue.Equals(null))
+            {
+                minValue = 0;
+            }
+
+            var result = await _sensorReadingsService.GetWithValuesBetweenAsync(minValue.Value, maxValue);
+            if (result.Equals(null))
+            {
+                return NotFound();
+            }
+            return result;
+        }
+
+
+
+        //public async Task<ActionResult<List<Sensor>>> GetAllReadingsWithNameTypeBetweenDatesAndBetweenValues()
+        //{
+        //    return NotFound();
+        //}
+
+
+
+        /// <summary>
+        /// Returns last reading of a sensor with a given name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>List<Sensor</returns>
+        [HttpGet("GetLastReading/{name}")]
+        public async Task<Sensor> GetLastReading(string name) =>
+            await _sensorReadingsService.GetLastReadingAsync(name);
+
+
+
+        /// <summary>
+        /// Creates a new Sensor reading
+        /// </summary>
+        /// <param name="newSensor"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post(Sensor newSensor)
         {
@@ -52,6 +170,13 @@ namespace MultiSensorApi.Controllers
             return CreatedAtAction(nameof(Get), new { id = newSensor.Id }, newSensor);
         }
 
+
+        /// <summary>
+        /// Updates current Sensor reading given ObjectId with 24 characters
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updatedSensor"></param>
+        /// <returns></returns>
         [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, Sensor updatedSensor)
         {
@@ -69,6 +194,12 @@ namespace MultiSensorApi.Controllers
             return NoContent();
         }
 
+
+        /// <summary>
+        /// Removes current Sensor reading given ObjectId with 24 characters
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:length(24)}")]
         public async Task<IActionResult> Delete(string id)
         {
