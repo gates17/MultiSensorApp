@@ -43,6 +43,60 @@ namespace MultiSensorAppApi.Controllers
             return alertConfiguration;
         }
 
+
+        // GET: api/GetLastAccessedAlertConfiguration
+        [HttpGet("GetLastAccessedAlertConfiguration")]
+        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetLastAccessedAlertConfiguration()
+        {
+            return await _context.AlertConfigurations.OrderBy(x => x.LastAccess).ToListAsync();
+            // fazer com que apareçam apenas os últimos 10 (por ex) e apparently será necessário sockets
+        }
+
+
+        [HttpGet("GetAlertConfigurationBySensorId")]
+        public async Task<ActionResult<AlertConfiguration>> GetAllAlertConfigurationBySensorId(int sensorId)
+        {
+            try
+            {
+                var alertConfiguration = await _context.AlertConfigurations.FirstAsync(x => x.SensorId.Equals(sensorId));
+
+                if (alertConfiguration == null)
+                {
+                    return NotFound();
+                }
+
+                return alertConfiguration;
+            }
+            catch (Exception ex)
+            {
+
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+
+        [HttpGet("GetAlertConfigurationByUserId")]
+        public async Task<ActionResult<AlertConfiguration>> GetAllAlertConfigurationByUserId(int userId)
+        {
+            try
+            {
+                var alertConfiguration = await _context.AlertConfigurations.FirstAsync(x => x.UserId.Equals(userId));
+
+                if (alertConfiguration == null)
+                {
+                    return NotFound();
+                }
+
+                return alertConfiguration;
+            }
+            catch (Exception ex)
+            {
+
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+
         // PUT: api/AlertConfiguration/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -95,7 +149,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.AlertConfigurations.Remove(alertConfiguration);
+            alertConfiguration.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

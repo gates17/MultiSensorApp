@@ -43,6 +43,17 @@ namespace MultiSensorAppApi.Controllers
             return alertLevel;
         }
 
+
+        // GET: api/AlertLevel/string
+        [HttpGet("{level}")]
+        public async Task<ActionResult<IEnumerable<AlertLevel>>> GetAlertLevelByLevel(string level)
+        {
+            // return uma lista where level equals AlertLevel.Level
+
+            return await _context.AlertLevels.Where(x => x.Level.Equals(level)).ToListAsync();
+        }
+
+
         // PUT: api/AlertLevel/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -95,7 +106,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.AlertLevels.Remove(alertLevel);
+            alertLevel.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

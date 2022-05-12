@@ -43,6 +43,50 @@ namespace MultiSensorAppApi.Controllers
             return alert;
         }
 
+
+        [HttpGet("GetAlertBySensorId/{sensorId}")]
+        public async Task<ActionResult<Alert>> GetAlertBySensorId(int sensorId)
+        {
+            try
+            {
+                var alert = await _context.Alerts.FirstAsync(x => x.SensorId.Equals(sensorId));
+
+                if (alert == null)
+                {
+                    return NotFound();
+                }
+
+                return alert;
+            }
+            catch (Exception ex)
+            {
+
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+
+        [HttpGet("GetAlertByUserId/{userId}")]
+        public async Task<ActionResult<Alert>> GetAlertByUserId(int userId)
+        {
+            try
+            {
+                var alert = await _context.Alerts.FirstAsync(x => x.UserId.Equals(userId));
+
+                if (alert == null)
+                {
+                    return NotFound();
+                }
+
+                return alert;
+            }
+            catch (Exception ex)
+            {
+
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
         // PUT: api/Alert/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -95,7 +139,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Alerts.Remove(alert);
+            alert.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();
