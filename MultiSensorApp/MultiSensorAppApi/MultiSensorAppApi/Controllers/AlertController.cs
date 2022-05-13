@@ -30,55 +30,54 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/Alert/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Alert>> GetAlert(int id)
+        [HttpGet("GetAlertById/{id}")]
+        public async Task<ActionResult<Alert>> GetAlertById(int id)
         {
-            var alert = await _context.Alerts.FindAsync(id);
+            var alert = await _context.Alerts.Include(a => a.User).Include(a => a.Sensor).FirstAsync(a => a.Id.Equals(id));
 
             if (alert == null)
             {
                 return NotFound();
             }
 
-            return alert;
+            return Ok(alert);
         }
 
 
         [HttpGet("GetAlertBySensorId/{sensorId}")]
-        public async Task<ActionResult<Alert>> GetAlertBySensorId(int sensorId)
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertBySensorId(int sensorId)
         {
             try
             {
-                var alert = await _context.Alerts.FirstAsync(x => x.SensorId.Equals(sensorId));
+                var alert = await _context.Alerts.Where(x => x.SensorId.Equals(sensorId)).ToListAsync();
 
                 if (alert == null)
                 {
                     return NotFound();
                 }
 
-                return alert;
+                return Ok(alert);
             }
             catch (Exception ex)
             {
-
                 throw new NotImplementedException(ex.Message);
             }
         }
 
 
         [HttpGet("GetAlertByUserId/{userId}")]
-        public async Task<ActionResult<Alert>> GetAlertByUserId(int userId)
+        public async Task<ActionResult<IEnumerable<Alert>>> GetAlertByUserId(int userId)
         {
             try
             {
-                var alert = await _context.Alerts.FirstAsync(x => x.UserId.Equals(userId));
+                var alert = await _context.Alerts.Where(x => x.UserId.Equals(userId)).ToListAsync();
 
                 if (alert == null)
                 {
                     return NotFound();
                 }
 
-                return alert;
+                return Ok(alert);
             }
             catch (Exception ex)
             {
@@ -123,10 +122,24 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Alert>> PostAlert(Alert alert)
         {
-            _context.Alerts.Add(alert);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Alerts.Add(alert);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlert", new { id = alert.Id }, alert);
+                return CreatedAtAction("GetAlertById", new { id = alert.Id }, alert);
+
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Alert/5

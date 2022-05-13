@@ -31,7 +31,7 @@ namespace MultiSensorAppApi.Controllers
 
         // GET: api/Role/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Role>> GetRole(int id)
+        public async Task<ActionResult<Role>> GetRoleById(int id)
         {
             var role = await _context.Roles.FindAsync(id);
 
@@ -40,7 +40,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return role;
+            return Ok(role);
         }
 
         // PUT: api/Role/5
@@ -79,10 +79,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Role>> PostRole(Role role)
         {
-            _context.Roles.Add(role);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Roles.Add(role);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRole", new { id = role.Id }, role);
+                return CreatedAtAction("GetRoleById", new { id = role.Id }, role);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Role/5
@@ -95,7 +108,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Roles.Remove(role);
+            role.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

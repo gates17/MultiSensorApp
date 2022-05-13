@@ -34,7 +34,7 @@ namespace MultiSensorAppApi.Controllers
         [HttpGet("GetSensorById/{id}")]
         public async Task<ActionResult<Sensor>> GetSensorById(int id)
         {
-            var sensor = await _context.Sensors.FindAsync(id);
+            var sensor = await _context.Sensors.Include(s => s.AlertLevel).Include(s => s.Category).Include(s => s.Area).FirstAsync();
 
             if (sensor == null)
             {
@@ -68,6 +68,31 @@ namespace MultiSensorAppApi.Controllers
             }
         }
 
+
+        // GET: api/Sensor/5
+        [HttpGet("GetSensorByAlertLevel/{alertLevelId}")]
+        public async Task<ActionResult<IEnumerable<Sensor>>> GetSensorByAlertLevel(int alertLevelId)
+        {
+            try
+            {
+                var sensor = await _context.Sensors.Where(x => x.AlertLevelId.Equals(alertLevelId)).ToListAsync();
+                // var sensor = await _context.sensors.where(x => x.Categoryid.equals(categoryid)).include(x => x.category).tolistasync();
+
+                if (sensor == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(sensor);
+
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        // GET: api/Sensor/5
         [HttpGet("GetSensorByArea/{areaId}")]
         public async Task<ActionResult<Sensor>> GetSensorByArea(int areaId)
         {
@@ -89,6 +114,8 @@ namespace MultiSensorAppApi.Controllers
             }
         }
 
+
+        // GET: Api/sensor
         [HttpGet("GetInactiveSensors")]
         public async Task<ActionResult<IEnumerable<Sensor>>> GetInactiveSensors()
         {
@@ -139,10 +166,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Sensor>> PostSensor(Sensor sensor)
         {
-            _context.Sensors.Add(sensor);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Sensors.Add(sensor);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSensor", new { id = sensor.Id }, sensor);
+                return CreatedAtAction("GetSensorById", new { id = sensor.Id }, sensor);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Sensor/5

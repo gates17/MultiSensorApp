@@ -30,8 +30,8 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/AlertLevel/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AlertLevel>> GetAlertLevel(int id)
+        [HttpGet("GetAlertLevelById/{id}")]
+        public async Task<ActionResult<AlertLevel>> GetAlertLevelById(int id)
         {
             var alertLevel = await _context.AlertLevels.FindAsync(id);
 
@@ -40,19 +40,8 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return alertLevel;
+            return Ok(alertLevel);
         }
-
-
-        // GET: api/AlertLevel/string
-        [HttpGet("{level}")]
-        public async Task<ActionResult<IEnumerable<AlertLevel>>> GetAlertLevelByLevel(string level)
-        {
-            // return uma lista where level equals AlertLevel.Level
-
-            return await _context.AlertLevels.Where(x => x.Level.Equals(level)).ToListAsync();
-        }
-
 
         // PUT: api/AlertLevel/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -90,10 +79,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<AlertLevel>> PostAlertLevel(AlertLevel alertLevel)
         {
-            _context.AlertLevels.Add(alertLevel);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.AlertLevels.Add(alertLevel);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlertLevel", new { id = alertLevel.Id }, alertLevel);
+                return CreatedAtAction("AlertLevelById", new { id = alertLevel.Id }, alertLevel);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/AlertLevel/5
