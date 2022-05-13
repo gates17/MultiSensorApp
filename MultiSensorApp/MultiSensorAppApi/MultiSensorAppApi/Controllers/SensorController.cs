@@ -34,7 +34,7 @@ namespace MultiSensorAppApi.Controllers
         [HttpGet("GetSensorById/{id}")]
         public async Task<ActionResult<Sensor>> GetSensorById(int id)
         {
-            var sensor = await _context.Sensors.FindAsync(id);
+            var sensor = await _context.Sensors.Include(s => s.AlertLevel).Include(s => s.Category).Include(s => s.Area).FirstAsync();
 
             if (sensor == null)
             {
@@ -166,10 +166,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Sensor>> PostSensor(Sensor sensor)
         {
-            _context.Sensors.Add(sensor);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Sensors.Add(sensor);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSensor", new { id = sensor.Id }, sensor);
+                return CreatedAtAction("GetSensorById", new { id = sensor.Id }, sensor);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Sensor/5

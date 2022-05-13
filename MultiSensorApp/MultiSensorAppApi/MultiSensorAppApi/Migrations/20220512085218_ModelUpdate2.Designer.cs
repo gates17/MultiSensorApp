@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MultiSensorAppApi.Data;
 
@@ -11,9 +12,10 @@ using MultiSensorAppApi.Data;
 namespace MultiSensorAppApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220512085218_ModelUpdate2")]
+    partial class ModelUpdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,11 +71,11 @@ namespace MultiSensorAppApi.Migrations
 
             modelBuilder.Entity("MultiSensorAppApi.Models.AlertConfiguration", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AlertConfigurationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlertConfigurationId"), 1L, 1);
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -103,7 +105,7 @@ namespace MultiSensorAppApi.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("AlertConfigurationId");
 
                     b.HasIndex("SensorId");
 

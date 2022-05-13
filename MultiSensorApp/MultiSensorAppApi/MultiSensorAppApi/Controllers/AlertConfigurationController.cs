@@ -33,7 +33,7 @@ namespace MultiSensorAppApi.Controllers
         [HttpGet("GetAlertConfigurationById/{id}")]
         public async Task<ActionResult<AlertConfiguration>> GetAlertConfigurationById(int id)
         {
-            var alertConfiguration = await _context.AlertConfigurations.FindAsync(id);
+            var alertConfiguration = await _context.AlertConfigurations.Include(a => a.Sensor).Include(_a => _a.User).FirstAsync(a => a.Id.Equals(id));
 
             if (alertConfiguration == null)
             {
@@ -46,15 +46,14 @@ namespace MultiSensorAppApi.Controllers
 
         // GET: api/GetLastAccessedAlertConfiguration
         [HttpGet("GetLastAccessedAlertConfiguration")]
-        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetLastAccessedAlertConfiguration()
+        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetLastAccessedAlertConfigurations()
         {
-            return await _context.AlertConfigurations.OrderBy(x => x.LastAccess).ToListAsync();
-            // fazer com que apareçam apenas os últimos 10 (por ex) e apparently será necessário sockets
+            return await _context.AlertConfigurations.OrderBy(x => x.LastAccess).Take(10).ToListAsync();
         }
 
 
         [HttpGet("GetAlertConfigurationBySensorId/{sensorId}")]
-        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetAllAlertConfigurationBySensorId(int sensorId)
+        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetAllAlertConfigurationsBySensorId(int sensorId)
         {
             try
             {
@@ -75,7 +74,7 @@ namespace MultiSensorAppApi.Controllers
 
 
         [HttpGet("GetAlertConfigurationByUserId/{userId}")]
-        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetAllAlertConfigurationByUserId(int userId)
+        public async Task<ActionResult<IEnumerable<AlertConfiguration>>> GetAllAlertConfigurationsByUserId(int userId)
         {
             try
             {
@@ -100,7 +99,7 @@ namespace MultiSensorAppApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAlertConfiguration(int id, AlertConfiguration alertConfiguration)
         {
-            if (id != alertConfiguration.AlertConfigurationId)
+            if (id != alertConfiguration.Id)
             {
                 return BadRequest();
             }
@@ -131,10 +130,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<AlertConfiguration>> PostAlertConfiguration(AlertConfiguration alertConfiguration)
         {
-            _context.AlertConfigurations.Add(alertConfiguration);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.AlertConfigurations.Add(alertConfiguration);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlertConfiguration", new { id = alertConfiguration.AlertConfigurationId }, alertConfiguration);
+                return CreatedAtAction("GetAlertConfigurationById", new { id = alertConfiguration.Id }, alertConfiguration);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/AlertConfiguration/5
@@ -155,7 +167,7 @@ namespace MultiSensorAppApi.Controllers
 
         private bool AlertConfigurationExists(int id)
         {
-            return _context.AlertConfigurations.Any(e => e.AlertConfigurationId == id);
+            return _context.AlertConfigurations.Any(e => e.Id == id);
         }
     }
 }

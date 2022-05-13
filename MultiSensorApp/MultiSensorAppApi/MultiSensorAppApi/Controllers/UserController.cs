@@ -33,7 +33,7 @@ namespace MultiSensorAppApi.Controllers
         [HttpGet("GetUserById/{id}")]
         public async Task<ActionResult<User>> GetUserById(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.Include(u => u.Role).FirstAsync(u => u.Id.Equals(id));
 
             if (user == null)
             {
@@ -45,7 +45,7 @@ namespace MultiSensorAppApi.Controllers
 
         // GET: api/User/5
         [HttpGet("GetUserByRole/{roleId}")]
-        public async Task<ActionResult<User>> GetUserByRole(int roleId)
+        public async Task<ActionResult<User>> GetUsersByRole(int roleId)
         {
             var user = await _context.Users.Where(x => x.RoleId.Equals(roleId)).ToListAsync();
 
@@ -93,10 +93,24 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+                return CreatedAtAction("GetUserById", new { id = user.Id }, user);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+              
         }
 
         // DELETE: api/User/5

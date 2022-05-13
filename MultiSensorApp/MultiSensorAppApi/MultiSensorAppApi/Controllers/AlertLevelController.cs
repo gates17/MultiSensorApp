@@ -43,30 +43,6 @@ namespace MultiSensorAppApi.Controllers
             return Ok(alertLevel);
         }
 
-
-        // GET: api/AlertLevel/string
-        [HttpGet("GetAlertLevelByLevel/{level}")]
-        public async Task<ActionResult<AlertLevel>> GetAlertLevelByLevel(string level)
-        {
-            // return uma lista where level equals AlertLevel.Level
-            try
-            {
-                var alertLevel = await _context.AlertLevels.FirstOrDefaultAsync(x => x.Level.Equals(level));
-
-                if (alertLevel == null)
-                {
-                    return NotFound();
-                }
-
-                return Ok(alertLevel);
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException(ex.Message);
-            }
-        }
-
-
         // PUT: api/AlertLevel/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -103,10 +79,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<AlertLevel>> PostAlertLevel(AlertLevel alertLevel)
         {
-            _context.AlertLevels.Add(alertLevel);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.AlertLevels.Add(alertLevel);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlertLevel", new { id = alertLevel.Id }, alertLevel);
+                return CreatedAtAction("AlertLevelById", new { id = alertLevel.Id }, alertLevel);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/AlertLevel/5

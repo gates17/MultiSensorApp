@@ -104,10 +104,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Area>> PostArea(Area area)
         {
-            _context.Areas.Add(area);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Areas.Add(area);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetArea", new { id = area.Id }, area);
+                return CreatedAtAction("GetAreaById", new { id = area.Id }, area);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Area/5

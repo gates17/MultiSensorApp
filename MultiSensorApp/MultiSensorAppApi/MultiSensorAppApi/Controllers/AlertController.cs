@@ -33,7 +33,7 @@ namespace MultiSensorAppApi.Controllers
         [HttpGet("GetAlertById/{id}")]
         public async Task<ActionResult<Alert>> GetAlertById(int id)
         {
-            var alert = await _context.Alerts.FindAsync(id);
+            var alert = await _context.Alerts.Include(a => a.User).Include(a => a.Sensor).FirstAsync(a => a.Id.Equals(id));
 
             if (alert == null)
             {
@@ -122,10 +122,24 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Alert>> PostAlert(Alert alert)
         {
-            _context.Alerts.Add(alert);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Alerts.Add(alert);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlert", new { id = alert.Id }, alert);
+                return CreatedAtAction("GetAlertById", new { id = alert.Id }, alert);
+
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Alert/5

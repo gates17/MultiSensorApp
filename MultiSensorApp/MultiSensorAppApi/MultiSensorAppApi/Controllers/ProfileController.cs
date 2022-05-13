@@ -33,7 +33,7 @@ namespace MultiSensorAppApi.Controllers
         [HttpGet("GetProfileById/{id}")]
         public async Task<ActionResult<Profile>> GetProfileById(int id)
         {
-            var profile = await _context.Profiles.FindAsync(id);
+            var profile = await _context.Profiles.Include(p => p.Area).Include(p => p.Category).Include(p => p.Role).Include(p => p.Permission).FirstAsync();
 
             if (profile == null)
             {
@@ -167,10 +167,24 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Profile>> PostProfile(Profile profile)
         {
-            _context.Profiles.Add(profile);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Profiles.Add(profile);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProfile", new { id = profile.Id }, profile);
+                return CreatedAtAction("GetProfileById", new { id = profile.Id }, profile);
+
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Profile/5

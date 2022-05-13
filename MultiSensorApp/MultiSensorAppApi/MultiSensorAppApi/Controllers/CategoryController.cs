@@ -31,7 +31,7 @@ namespace MultiSensorAppApi.Controllers
 
         // GET: api/Category/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<Category>> GetCategoryById(int id)
         {
             var category = await _context.Categories.FindAsync(id);
 
@@ -79,14 +79,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
-    
-            if(CategoryExists(category.Type))
-                return BadRequest();
+            try
+            {
+                _context.Categories.Add(category);
+                await _context.SaveChangesAsync();
 
-            _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
+                return CreatedAtAction("GetCategoryById", new { id = category.Id }, category);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Category/5
