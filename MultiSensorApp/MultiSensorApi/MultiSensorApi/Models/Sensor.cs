@@ -23,6 +23,7 @@ namespace MultiSensorApi.Models
 
         [BsonElement("timestamp")]
         [BsonRequired, BsonRepresentation(BsonType.DateTime)]
+        //[BsonDateTimeOptions(Kind = DateTimeKind.Unspecified)]
         public DateTime ReadingDate { get; set; } = DateTime.Now;
 
         [BsonElement("type")]
