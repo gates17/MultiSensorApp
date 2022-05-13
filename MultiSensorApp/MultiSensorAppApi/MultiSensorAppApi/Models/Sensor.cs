@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MultiSensorAppApi.Models
 {
+    // name is unique to not allow ambiguity between sensors that measure the same parameters 
+    // (having two humidity sensors may make it hard finding out which values are coming from which sensor, for example)
     [Microsoft.EntityFrameworkCore.Index(nameof(Name), IsUnique = true)]
     public class Sensor
     {

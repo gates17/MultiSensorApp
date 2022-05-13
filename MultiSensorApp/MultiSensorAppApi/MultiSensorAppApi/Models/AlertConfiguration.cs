@@ -7,14 +7,14 @@ namespace MultiSensorAppApi.Models
     public class AlertConfiguration
     {
         [Key, Required]
-        public int AlertConfigurationId { get; set; }
+        public int Id { get; set; }
 
 
         public string Favorites { get; set; }
 
 
         [Required]
-        public DateTime LastAccess { get; set; }
+        public DateTime LastAccess { get; set; } = DateTime.Now;
 
 
         public int Max { get; set; }

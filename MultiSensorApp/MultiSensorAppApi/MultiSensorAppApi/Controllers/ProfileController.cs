@@ -30,18 +30,106 @@ namespace MultiSensorAppApi.Controllers
         }
 
         // GET: api/Profile/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Profile>> GetProfile(int id)
+        [HttpGet("GetProfileById/{id}")]
+        public async Task<ActionResult<Profile>> GetProfileById(int id)
         {
-            var profile = await _context.Profiles.FindAsync(id);
+            var profile = await _context.Profiles.Include(p => p.Area).Include(p => p.Category).Include(p => p.Role).Include(p => p.Permission).FirstAsync();
 
             if (profile == null)
             {
                 return NotFound();
             }
 
-            return profile;
+            return Ok(profile);
         }
+
+        //Get: api/Profile/5
+        [HttpGet("GetProfileByCategory/{categoryId}")]
+        public async Task<ActionResult<IEnumerable<Profile>>> GetProfileByCategory(int categoryId)
+        {
+            try
+            {
+                var profile = await _context.Profiles.Where(x => x.CategoryId == categoryId).ToListAsync();
+
+                if (profile is null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(profile);
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+
+        //Get: api/Profile/5
+        [HttpGet("GetProfileByArea/{areaId}")]
+        public async Task<ActionResult<IEnumerable<Profile>>> GetProfileByArea(int areaId)
+        {
+            try
+            {
+                var profile = await _context.Profiles.Where(x => x.AreaId == areaId).ToListAsync();
+
+                if (profile is null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(profile);
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+
+        //Get: api/Profile/5
+        [HttpGet("GetProfileByRole/{roleId}")]
+        public async Task<ActionResult<IEnumerable<Profile>>> GetProfileByRole(int roleId)
+        {
+            try
+            {
+                var profile = await _context.Profiles.Where(x => x.RoleId == roleId).ToListAsync();
+
+                if (profile is null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(profile);
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+
+        //Get: api/Profile/5
+        [HttpGet("GetProfileByPermission/{permissionId}")]
+        public async Task<ActionResult<IEnumerable<Profile>>> GetProfileByPermission(int permissionId)
+        {
+            try
+            {
+                var profile = await _context.Profiles.Where(x => x.PermissionId == permissionId).ToListAsync();
+
+                if (profile is null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(profile);
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
 
         // PUT: api/Profile/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -79,10 +167,24 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Profile>> PostProfile(Profile profile)
         {
-            _context.Profiles.Add(profile);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Profiles.Add(profile);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProfile", new { id = profile.Id }, profile);
+                return CreatedAtAction("GetProfileById", new { id = profile.Id }, profile);
+
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Profile/5
@@ -95,7 +197,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Profiles.Remove(profile);
+            profile.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();

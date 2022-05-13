@@ -12,8 +12,8 @@ using MultiSensorAppApi.Data;
 namespace MultiSensorAppApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220511091224_ModelUpdate2")]
-    partial class ModelUpdate2
+    [Migration("20220512140732_IdNameUpdate")]
+    partial class IdNameUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,6 @@ namespace MultiSensorAppApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
@@ -64,16 +63,19 @@ namespace MultiSensorAppApi.Migrations
 
                     b.HasIndex("UserId");
 
+                    b.HasIndex("Value")
+                        .IsUnique();
+
                     b.ToTable("Alerts");
                 });
 
             modelBuilder.Entity("MultiSensorAppApi.Models.AlertConfiguration", b =>
                 {
-                    b.Property<int>("AlertConfigurationId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlertConfigurationId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -85,7 +87,7 @@ namespace MultiSensorAppApi.Migrations
                     b.Property<bool>("IsInactive")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("LastAcsess")
+                    b.Property<DateTime>("LastAccess")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Max")
@@ -103,9 +105,11 @@ namespace MultiSensorAppApi.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("AlertConfigurationId");
+                    b.HasKey("Id");
 
                     b.HasIndex("SensorId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("AlertConfigurations");
                 });
@@ -139,6 +143,9 @@ namespace MultiSensorAppApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Level")
+                        .IsUnique();
+
                     b.ToTable("AlertLevels");
                 });
 
@@ -166,6 +173,9 @@ namespace MultiSensorAppApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("Areas");
                 });
 
@@ -192,6 +202,9 @@ namespace MultiSensorAppApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Type")
+                        .IsUnique();
 
                     b.ToTable("Categories");
                 });
@@ -289,6 +302,9 @@ namespace MultiSensorAppApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Type")
+                        .IsUnique();
+
                     b.ToTable("Roles");
                 });
 
@@ -335,6 +351,9 @@ namespace MultiSensorAppApi.Migrations
                     b.HasIndex("AreaId");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Sensors");
                 });
@@ -416,7 +435,15 @@ namespace MultiSensorAppApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("MultiSensorAppApi.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Sensor");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MultiSensorAppApi.Models.Profile", b =>

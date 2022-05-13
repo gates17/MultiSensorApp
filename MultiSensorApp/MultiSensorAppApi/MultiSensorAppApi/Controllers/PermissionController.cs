@@ -31,7 +31,7 @@ namespace MultiSensorAppApi.Controllers
 
         // GET: api/Permission/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Permission>> GetPermission(int id)
+        public async Task<ActionResult<Permission>> GetPermissionById(int id)
         {
             var permission = await _context.Permissions.FindAsync(id);
 
@@ -40,7 +40,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            return permission;
+            return Ok(permission);
         }
 
         // PUT: api/Permission/5
@@ -79,10 +79,23 @@ namespace MultiSensorAppApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Permission>> PostPermission(Permission permission)
         {
-            _context.Permissions.Add(permission);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Permissions.Add(permission);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPermission", new { id = permission.Id }, permission);
+                return CreatedAtAction("GetPermissionById", new { id = permission.Id }, permission);
+            }
+            // fazermos as nossas exceções!!
+            catch (BadHttpRequestException)
+            {
+
+                throw new BadHttpRequestException("e");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // DELETE: api/Permission/5
@@ -95,7 +108,7 @@ namespace MultiSensorAppApi.Controllers
                 return NotFound();
             }
 
-            _context.Permissions.Remove(permission);
+            permission.IsInactive = true;
             await _context.SaveChangesAsync();
 
             return NoContent();
