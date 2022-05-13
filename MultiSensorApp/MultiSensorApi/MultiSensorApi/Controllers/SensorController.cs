@@ -2,6 +2,7 @@
 using MultiSensorApi.Models;
 using MultiSensorApi.Services;
 using System.Net;
+using MultiSensorApi.Helpers;
 
 namespace MultiSensorApi.Controllers
 {
@@ -66,52 +67,24 @@ namespace MultiSensorApi.Controllers
         }
 
         /// <summary>
-        /// Returns all Sensor readings in a given interval between a starting date and an ending date.
-        /// If ending date is not given it assumes a 24H interval
+        /// Returns all Sensor readings in a given interval between a starting date and an ending date with timespans.
         /// </summary>
         /// <param name="startDate"></param>
         /// <param name="endDate"></param>
         /// <returns></returns>
-        [HttpGet("GetBetweenDates")]
-        public async Task<ActionResult<List<Sensor>>> GetBetweenDates(string? startDate, string? startDateTime, string? endDate, string? endDateTime)
+        [HttpGet("GetBetweenFullDates")]
+        public async Task<ActionResult<List<Sensor>>> GetBetweenFullDates(string startDate, string startTime, string endDate, string endTime)
         {
-            string decodedStartDate;
-            string decodedStartDateTime;
-            string decodedEndtDate;
-            string decodedEndtDateTime;
+            DateTime startTimestamp;
+            DateTime endTimestamp;
 
-            if (startDate !=  null && startDateTime == null)
-            {
-                decodedStartDate = WebUtility.UrlDecode(startDate);
-            }
-            else if((startDate != null) && startDateTime != null )
-            {
-                decodedStartDate = WebUtility.UrlDecode(startDate);
-                decodedStartDateTime = WebUtility.UrlDecode(startDateTime);
-                decodedStartDate = Convert.ToDateTime(decodedStartDate).Add(TimeSpan.Parse(decodedStartDateTime)).ToString();
-            }
-            else { return NotFound(); }
+            startTimestamp = Validations.StringToDateTime(WebUtility.UrlDecode(startDate), WebUtility.UrlDecode(startTime));
+            endTimestamp = (DateTime)Validations.StringToDateTime(WebUtility.UrlDecode(endDate), WebUtility.UrlDecode(endTime));
 
-            if (endDate != null && endDateTime == null)
-            { 
-                decodedEndtDate = WebUtility.UrlDecode(endDate);
-            }
-            else if(endDate != null && endDateTime != null)
-            {
-                decodedEndtDate = WebUtility.UrlDecode(endDate);
-                decodedEndtDateTime = WebUtility.UrlDecode(endDateTime);
-                decodedEndtDate = Convert.ToDateTime(decodedEndtDate).Add(TimeSpan.Parse(decodedEndtDateTime)).ToString();
-            }
+            if (startTimestamp > endTimestamp)
+                return BadRequest();
 
-            else
-            {
-                decodedEndtDate = WebUtility.UrlDecode(startDate);
-                decodedEndtDate = Convert.ToDateTime(decodedEndtDate).AddDays(1).ToString();
-            }
-            DateTime startDateOnly = Convert.ToDateTime(decodedStartDate);
-            DateTime endDateOnly = Convert.ToDateTime(decodedEndtDate);
-
-            var result = await _sensorReadingsService.GetWithDatesBetweenAsync(startDateOnly, endDateOnly);
+            var result = await _sensorReadingsService.GetWithDatesBetweenAsync(startTimestamp, endTimestamp);
             if (result.Equals(null))
             {
                 return NotFound();
@@ -119,6 +92,48 @@ namespace MultiSensorApi.Controllers
             return result;
         }
 
+
+        [HttpGet("GetBetweenDates")]
+        public async Task<ActionResult<List<Sensor>>> GetBetweenDates(string startDate, string endDate)
+        {
+            DateTime startTimestamp;
+            DateTime endTimestamp;
+
+            startTimestamp = Validations.StringToDateTime(WebUtility.UrlDecode(startDate));
+            endTimestamp = (DateTime)Validations.StringToDateTime(WebUtility.UrlDecode(endDate));
+
+            if (startTimestamp > endTimestamp)
+                return BadRequest();
+
+            var result = await _sensorReadingsService.GetWithDatesBetweenAsync(startTimestamp, endTimestamp);
+            if (result.Equals(null))
+            {
+                return NotFound();
+            }
+            return result;
+        }
+
+       
+        [HttpGet("GetBetweenTimeSpans")]
+        public async Task<ActionResult<List<Sensor>>> GetBetweenTimeSpans(string startTime, string endTime)
+        {
+            DateTime startTimestamp;
+            DateTime endTimestamp;
+
+            startTimestamp = Validations.StringToTime(WebUtility.UrlDecode(startTime));
+            endTimestamp = (DateTime)Validations.StringToTime(WebUtility.UrlDecode(endTime));
+
+            if (startTimestamp > endTimestamp)
+                return BadRequest();
+
+            var result = await _sensorReadingsService.GetWithDatesBetweenAsync(startTimestamp, endTimestamp);
+            if (result.Equals(null))
+            {
+                return NotFound();
+            }
+            return result;
+        }
+       
 
 
         [HttpGet("GetBetweenValues")]
