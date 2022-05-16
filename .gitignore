@@ -3,3 +3,9 @@
 ################################################################################
 
 /MultiSensorApp/MultiSensorApi/.vs/MultiSensorApi
+/MultiSensorApp/MultiSensorApi/MultiSensorApi/obj
+/MultiSensorApp/MultiSensorAppApi/MultiSensorAppApi/obj
+/MultiSensorApp/MultiSensorAppFrontEnd/.vs/MultiSensorAppFrontEnd
+/MultiSensorApp/MultiSensorAppFrontEnd/MultiSensorAppFrontEnd/bin/Debug/net6.0
+/MultiSensorApp/MultiSensorAppFrontEnd/MultiSensorAppFrontEnd/obj/Debug/net6.0
+/MultiSensorApp/MultiSensorAppFrontEnd/MultiSensorAppFrontEnd/obj
