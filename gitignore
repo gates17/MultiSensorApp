@@ -348,3 +348,12 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+
+# ignore folders
+MultiSensorApp/MultiSensorApi/.vs/
+MultiSensorApp/MultiSensorApi/MultiSensorApi/obj/
+MultiSensorApp/MultiSensorAppApi/MultiSensorAppApi/obj/
+MultiSensorApp/MultiSensorAppFrontEnd/.vs/
+MultiSensorApp/MultiSensorAppFrontEnd/MultiSensorAppFrontEnd/bin/
+MultiSensorApp/MultiSensorAppFrontEnd/MultiSensorAppFrontEnd/obj/
