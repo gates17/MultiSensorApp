@@ -1,16 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MultiSensorAppFrontEnd.Models;
 
 namespace MultiSensorAppFrontEnd.Controllers
 {
-    public class UserController : Controller
+    public class Role : Controller
     {
-
         //List all
         public IActionResult Index()
         {
-            IEnumerable<User> users = new List<User> { new User { Id=1, Name="João", EmailAdress="dfg@sdfg.pt"} };
-            return View(users);
+            return View();
         }
 
         //Get by ID
@@ -30,6 +27,5 @@ namespace MultiSensorAppFrontEnd.Controllers
         {
             return View();
         }
-
     }
 }
