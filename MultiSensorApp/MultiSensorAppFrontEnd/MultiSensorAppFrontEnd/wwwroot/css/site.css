@@ -56,7 +56,6 @@ div{
     height: 250px;
     clip-path: polygon(0 25%, 50% 0, 100% 25%,100% 75%,50% 100%,0 75%);
     display: flex;
-    /*background: rgb(13, 71, 161);*/
     background: rgb(22, 128, 121);
     justify-content: center;
     align-items: center;
@@ -76,12 +75,12 @@ div{
  }
 
     .hexagon:hover {
+        background: rgb(36, 121, 42);
         /*background: rgb(101, 177, 132);*/
-        background: rgb(118, 149, 137);
+        /*background: rgb(118, 149, 137);*/
 
         transform: scale(0.8);
         border: none;
-        
     }
 
 .updiv{
