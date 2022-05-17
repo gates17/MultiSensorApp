@@ -1,5 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Http.Headers;
+using System.Text;
 
 namespace MultiSensorAppFrontEnd.Models
 {
@@ -53,5 +56,65 @@ namespace MultiSensorAppFrontEnd.Models
 
         public Role? Role { get; set; }
 
+
+        /// <summary>
+        /// Use this method to Get a list of all users
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        public static async Task<IEnumerable<User>> GetUsers(string uri)
+        {
+            IEnumerable<User> users = new List<User>();
+
+            HttpClient client = Helper.GetHttpClient(uri);
+
+            HttpResponseMessage response = await client.GetAsync("User");
+
+            response.EnsureSuccessStatusCode();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var res = await response.Content.ReadFromJsonAsync<List<User>>();
+
+                if (res != null)
+                {
+                    users = res;
+                }
+            }
+
+            return users;
+        }
+
+
+        /// <summary>
+        /// Use this method to create a user
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static async Task<User> CreateUser(string uri, User user)
+        {
+
+            HttpClient client = Helper.GetHttpClient(uri);
+
+            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync(uri + "user", httpContent);
+
+            response.EnsureSuccessStatusCode();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var res = JsonConvert.DeserializeObject<User>(await response.EnsureSuccessStatusCode().Content.ReadAsStringAsync());
+
+                if (res != null)
+                {
+                    user = res;
+                }
+            }
+
+            return user;
+        }
     }
 }

@@ -21,7 +21,6 @@ namespace MultiSensorAppApi.Models
 
 
         [Required]
-
         public DateTime CreationDate { get; set; }
 
 
@@ -40,6 +39,7 @@ namespace MultiSensorAppApi.Models
         public int SensorId { get; set; }
 
         public Sensor? Sensor { get; set; }
+
 
         [Required, ForeignKey("User")]
         public int UserId { get; set; }
