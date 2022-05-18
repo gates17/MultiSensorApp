@@ -19,5 +19,13 @@ namespace MultiSensorAppFrontEnd.Models
             IEnumerable<User> users = await Models.User.GetUsers(configuration.GetValue<string>("URI"));
             return View(users);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(User user)
+        {
+            return (IActionResult)await Models.User.CreateUser(configuration.GetValue<string>("URI"), user);
+        }
+
+
     }
 }

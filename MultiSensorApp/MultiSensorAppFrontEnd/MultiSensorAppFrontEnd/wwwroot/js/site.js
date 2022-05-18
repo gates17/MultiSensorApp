@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+function EnableButton(checkbox) {
 
-// Write your JavaScript code.
+    if (checkbox.checked) {
+        document.getElementById("DeleteButton").disabled = false;
+    }
+    else {
+        document.getElementById("DeleteButton").disabled = true;
+    }
+}

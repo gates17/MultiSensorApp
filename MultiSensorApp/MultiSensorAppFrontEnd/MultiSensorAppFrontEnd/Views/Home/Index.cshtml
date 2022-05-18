@@ -1,8 +1,70 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+		<link href="css/styles.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="container">
+
+			<div>
+			@*Up div*@
+				<div class="row d-flex flex-wrap justify-content-center">
+						
+					<div class="hexagon mr-1 justify-content-center">
+							<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Create">
+								<img src="images/newuser.png"/>
+								<h3>Create user</h3>	
+							</a>
+						</div>
+						
+						<div class="hexagon mr-1">
+							<img src="images/sensor.png"/>
+							<h3>Create sensor</h3>
+						</div>
+						
+						<div class="hexagon mr-1">
+							<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="">
+							<img src="images/preferences.png"/>
+							<h3>Preferences</h3>
+							</a>
+						</div>
+						
+						<div class="hexagon mr-1">
+							<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="">
+							<img src="images/statistics.png"/>
+							<h3>Statistics</h3>
+							</a>
+						</div>	
+				</div>
+
+			@*down div*@
+				<div class="row d-flex flex-wrap justify-content-center">
+						<div class="hexagon mr-1">
+							<img src="images/favorites.png"/>
+							<h3>Favorites</h3>
+						</div>	
+						<div class="hexagon mr-1">
+							<img src="images/consults.png"/>
+							<h3>Consults</h3>
+						</div>	
+						<div class="hexagon mr-1">
+							<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">
+							<img src="images/userlist.png"/>
+							<h3>List Users</h3>
+							</a>
+						</div>	
+				</div>
+			</div>			
+		</div>		
+	</body>
+</html>

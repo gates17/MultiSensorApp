@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<MultiSensorAppFrontEnd.Models.User>
+
+    <h1> Users</h1>
+
+    <div class="container text-end">
+        <a asp-controller="User" asp-action="Create" class= "btn btn-primary">
+            Create New User
+        </a>
+    </div>
+
+    <table class= "table table-bordered table-striped formcreate">
+        <tr>
+            <th>Id</th><th>Name</th><th>Department</th><th>Function</th><th>EmailAdress</th><th>Contact</th><th>Actions</th>
+        </tr> 
+
+        @foreach(User user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Name</td>
+            <td>@user.Department</td>
+            <td>@user.Function</td>
+            <td>@user.EmailAdress</td>
+            <td>@user.Contact</td>
+            <td>
+                <a asp-controller= "User" asp-action="Update"asp-route-id="@user.Id"class="btn btn-secondary">                   
+                    Update
+                </a>
+                <a asp-controller= "User" asp-action="Delete"asp-route-id="@user.Id"class="btn btn-danger">                   
+                    Delete
+                </a>
+                <a asp-controller= "User" asp-action="Details"asp-route-id="@user.Id"class="btn btn-primary">                   
+                    Details
+                </a>
+            </td>
+        </tr>
+    }
+    </table>
