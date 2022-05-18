@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+@model List<Role>
+
+    <h1> Roles</h1>
+
+    <div class="container text-end">
+        <a asp-controller="Role" asp-action="Create" class= "btn btn-success">
+            Create New Role
+        </a>
+    </div>
+
+    <table class= "table table-bordered table-striped formcreate">
+        <tr>
+            <th>Id</th><th>Type of Roles</th><th>Description</th><th>Actions</th>
+        </tr> 
+
+        @foreach(Role role in Model)
+    {
+        <tr>
+            <td>@role.Id</td>
+            <td>@role.Type</td>
+            <td>@role.Description</td>
+            <td>
+                <a asp-controller= "Role" asp-action="Update"asp-route-id="@role.Id"class="btn btn-secondary buttonsize">                   
+                    Update
+                </a>
+                <a asp-controller= "Role" asp-action="Delete"asp-route-id="@role.Id"class="btn btn-danger buttonsize">                   
+                    Delete
+                </a>
+                <a asp-controller= "Role" asp-action="Details"asp-route-id="@role.Id"class="btn btn-primary buttonsize">                   
+                    Details
+                </a>
+            </td>
+        </tr>
+    }
+    </table>
