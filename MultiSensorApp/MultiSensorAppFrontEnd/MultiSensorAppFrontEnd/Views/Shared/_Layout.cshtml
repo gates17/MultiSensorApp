@@ -13,7 +13,7 @@
 <body class="homecolor">
     <header>
         <div>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 navborder">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 navborder fixed-top">
             
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MultiSensorApp</a>
@@ -42,7 +42,7 @@
         </nav>
         </div>
     </header>
-    <div class="container">
+    <div class="container" id="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

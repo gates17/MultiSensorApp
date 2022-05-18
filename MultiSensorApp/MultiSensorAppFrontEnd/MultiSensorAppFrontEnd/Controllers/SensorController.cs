@@ -2,7 +2,7 @@
 
 namespace MultiSensorAppFrontEnd.Controllers
 {
-    public class Sensor : Controller
+    public class SensorController : Controller
     {
         //List all
         public IActionResult Index()
