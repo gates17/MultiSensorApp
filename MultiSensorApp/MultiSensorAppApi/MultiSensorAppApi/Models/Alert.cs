@@ -20,8 +20,8 @@ namespace MultiSensorAppApi.Models
         public string? Description { get; set; }
 
 
-        [Required]
-        public DateTime CreationDate { get; set; }
+        [Required, DataType(DataType.DateTime), DisplayFormat(DataFormatString = "{0: yyyy-MMM-dd}")]
+        public DateTime CreationDate { get; set; } = DateTime.Now;
 
 
         public DateTime UpdateDate { get; set; } = DateTime.Now;

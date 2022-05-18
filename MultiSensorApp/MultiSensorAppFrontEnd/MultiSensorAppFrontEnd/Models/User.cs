@@ -52,9 +52,9 @@ namespace MultiSensorAppFrontEnd.Models
 
 
         [Required, ForeignKey("Role")]
-        public int RoleId { get; set; }
+        public int RoleId { get; set; } = 1;
 
-        public Role? Role { get; set; }
+        public Role? Role { get; set; } = new();
 
 
         /// <summary>
@@ -94,13 +94,14 @@ namespace MultiSensorAppFrontEnd.Models
         /// <returns></returns>
         public static async Task<User> CreateUser(string uri, User user)
         {
+            string path = String.Format("{0}User", uri);
 
             HttpClient client = Helper.GetHttpClient(uri);
 
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.PostAsync(uri + "user", httpContent);
+            var response = await client.PostAsync(path, httpContent);
 
             response.EnsureSuccessStatusCode();
 
