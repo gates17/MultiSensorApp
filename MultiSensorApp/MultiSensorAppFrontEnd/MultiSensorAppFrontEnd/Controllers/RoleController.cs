@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MultiSensorAppFrontEnd.Models;
 
 namespace MultiSensorAppFrontEnd.Controllers
 {
-    public class Role : Controller
+    public class RoleController : Controller
     {
         //List all
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Role> roles = new List<Role> { new Role { Id=1, Type="SuperUser", Description= "This user can change all in a specific area" } };
+            return View(roles);
+            
         }
 
         //Get by ID
